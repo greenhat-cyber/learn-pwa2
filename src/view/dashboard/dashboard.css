@@ -1,0 +1,7 @@
+.nav-tabs{
+    margin-top: 1rem !important;
+    display: flex !important;
+    justify-content: space-evenly;
+    flex-wrap: unset !important;
+    gap: unset !important;
+}

@@ -1,13 +1,17 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-
-import { BsArrowUpCircle,BsArrowDownCircle } from "react-icons/bs";
+import React, { useState } from "react";
+import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import "./dashboard.css"
+import { BsArrowUpCircle, BsArrowDownCircle } from "react-icons/bs";
+import Pending from "./Pending/Pending";
+import Statement from "./Statement/Statement";
+import Rejected from "./Rejected/Rejected";
 
 const Dashboard = () => {
+  const [key, setKey] = useState("pending");
   return (
-    <div className="container-fluid">
+    <Container>
       <Row>
-        <Col md={12} sm={12} className="text-center p-4">
+        <Col md={12} sm={12} className="text-center">
           <h3>Helvit</h3>
         </Col>
       </Row>
@@ -24,7 +28,7 @@ const Dashboard = () => {
       </Row>
 
       <Row
-        className="gap-4"
+        className=" gap-2"
         style={{
           display: "flex",
           alignItems: "center",
@@ -33,14 +37,13 @@ const Dashboard = () => {
       >
         <Col
           md={6}
-          sm={6}
           xs={6}
           style={{
             backgroundColor: "#00435e",
             color: "#fff",
             borderRadius: "10px",
-            width: "40%",
-            height:"266px",
+            width: "45%",
+            height: "230px",
             display: "flex",
             alignItems: "start",
             flexDirection: "column",
@@ -48,34 +51,59 @@ const Dashboard = () => {
           }}
         >
           <BsArrowDownCircle className="fs-3 mb-4 mt-5" />
-            <h1 className="mb-4" >0</h1>
-            <p className="fw-bold">Point Added</p>
+          <h1 className="mb-4">0</h1>
+          <p className="fw-bold">Point Added</p>
         </Col>
         <Col
           md={6}
-          sm={6}
           xs={6}
           style={{
             backgroundColor: "#d8e3e8",
             color: "#00435e",
             borderRadius: "10px",
-            width: "40%",
-            height:"266px",
-            
+            width: "45%",
+            height: "230px",
+
             display: "flex",
             alignItems: "start",
             flexDirection: "column",
             justifyContent: "flex-start",
           }}
-          
         >
           <BsArrowUpCircle className="fs-3 mb-4 mt-5" />
-            <h1 className="mb-4" >0</h1>
-            <p className="fw-bold">Point Redeemed</p>
-         
+          <h1 className="mb-4">0</h1>
+          <p className="fw-bold">Point Redeemed</p>
         </Col>
       </Row>
-    </div>
+
+      <Row
+        className="pt-4"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Col >
+          <Tabs
+            id="controlled-tab-example"
+            activeKey={key}
+            onSelect={(k) => setKey(k)}
+            className="mb-3"
+          >
+            <Tab eventKey="pending" title="Pending">
+              <Pending />
+            </Tab>
+            <Tab eventKey="statement" title="Statement">
+              <Statement />
+              </Tab>
+              <Tab eventKey="rejected" title="Rejected">
+              <Rejected />
+            </Tab>
+          </Tabs>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

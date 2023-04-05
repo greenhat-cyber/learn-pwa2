@@ -1,15 +1,25 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import Sidebar from "../Components/Sidebar/Sidebar";
+import BottomNav from "../Components/nav/BottomNav";
 
 const Default = () => {
-  let auth = localStorage.getItem("token")
+  let auth = localStorage.getItem("token");
   return (
     <>
       {/* <aside style={{ position: "fixed" }}>
         <Sidebar />
       </aside> */}
-      <>{auth ? <Outlet /> : <Navigate to={"/login"} />}</>
+      <>
+        {auth ? (
+          <>
+            <Outlet />
+
+            <BottomNav />
+          </>
+        ) : (
+          <Navigate to={"/login"} />
+        )}
+      </>
     </>
   );
 };

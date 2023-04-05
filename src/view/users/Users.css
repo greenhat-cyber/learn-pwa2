@@ -1,0 +1,23 @@
+.bt3 {
+  width: 100% !important;
+  border-radius: 50px !important;
+}
+.btn-outline-primary {
+  border-color: #00435e !important;
+  color: #00435e !important;
+  font-weight: 500 !important;
+}
+.btn-outline-primary:hover {
+  border-color: unset !important;
+  color: unset !important;
+  background-color: unset !important;
+}
+
+.bt4 {
+  width: 100rem !important;
+  border-radius: 50px !important;
+}
+
+.bt-box{
+    margin-bottom: 20rem !important ;
+}
