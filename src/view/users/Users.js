@@ -9,6 +9,11 @@ import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const navigate = useNavigate();
+  const handlLogOut= ()=>{
+    localStorage.removeItem("token")
+    navigate("/login")
+
+  }
   return (
     <>
       <div style={{ width: "100%", backgroundColor: "#00435e", color: "#fff" }}>
@@ -77,7 +82,7 @@ const Users = () => {
       </Row>
       <Row style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
         <Col style={{display:"flex",alignItems:"center",justifyContent:"center"}} md={4} xs={10} >
-        <Button variant="outline-primary" className="bt4 mt-5 " >Logout</Button>
+        <Button variant="outline-primary" className="bt4 mt-5 " onClick={handlLogOut} >Logout</Button>
         </Col>
       </Row>
     </>
